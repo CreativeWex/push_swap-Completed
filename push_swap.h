@@ -1,9 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
-# include <stdio.h> // для printf (после удалить)
-# include <stdlib.h>
+# include "libft/libft.h"
 
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
@@ -20,7 +18,7 @@ typedef struct s_node
 	int				flag;
 	struct s_node	*next;
 	struct s_node	*prev;
-}
+}                   t_node;
 
 // Каждый стек - отдельный двусвязный список
 // Длина стека нужна для перемещения по закольцованному списку
@@ -36,4 +34,12 @@ typedef struct s_all
 	int				min_a;
 }					t_all;
 
+// parsing and validation.c
+char	**ft_readline(char **av);
+void	ft_check_input_numbers(char **arr);
+void ft_check_for_doubles(char **arr);
+
+// data_initialisation.c
+t_all	*ft_init_struct(char **arr);
+int ft_arr_len(char **arr);
 #endif

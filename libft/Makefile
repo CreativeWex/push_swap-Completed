@@ -20,7 +20,7 @@ SRCS_B	=	ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c	ft_lstadd_back.c\
 
 HEADER  =	libft.h
 OBJ		=	$(patsubst %.c, %.o, $(SRCS))
- 
+
 OBJ_B	=	$(SRCS_B:%.c=%.o)
  
 CC		=	gcc
@@ -31,21 +31,30 @@ CFLAGS	=	-Wall -Wextra -Werror -I$(HEADER)
 all		:	$(NAME)
  
 $(NAME)	:	$(OBJ) $(HEADER)
-		ar rcs $(NAME) $?
- 
+		@echo "\tCompilation of $(NAME)"
+		@ar rcs $(NAME) $?
+		@echo "\tCompilation done!"
  
 %.o		:	%.c $(HEADER)
-		$(CC) $(FLAGS) -c $< -o $@
-#??
- 
+		@$(CC) $(FLAGS) -c $< -o $@
+# $< - Имя первого пререквизита (подставляется первая зависимость).
+# $@ - Имя файла цели обрабатываемого правила.
+
 bonus	:
-		make OBJ="$(OBJ_B)" all
- 
+		@echo "\tBonus part compilation"
+		@make OBJ="$(OBJ_B)" all
+		@echo "\tCompilation done!"
+
 clean	:
-		rm -f $(OBJ) $(OBJ_B)
+		@echo "\tDeleting .o files"
+		@rm -f $(OBJ)
+		@echo "\tDeleting done!"
  
 fclean	:	clean
-		$(RM) $(NAME)
+		@echo "\tDeleting $(NAME)"
+		@rm -f $(OBJ) $(OBJB)
+		@rm -f $(NAME)
+		@echo "\tDeleting done!"
  
 re		:	fclean all
  

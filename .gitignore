@@ -1,1 +1,5 @@
 *.o
+/libft/*.o
+/libft/libf.a
+/.vscode
+/readme_materials/quest.md
