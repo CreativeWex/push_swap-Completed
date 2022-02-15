@@ -15,6 +15,37 @@ t_node	*new_list(int num, int index)
 	return (list);
 }
 
+// Если список не инициализирован - создаем новый
+// Если не закольцован - закольцовываем
+void	lstadd_back(t_node **stack_a, t_node *new)
+{
+	t_node	*begin;
+
+	if (new == NULL)
+		return ;
+	begin = *stack_a;
+	if (begin)
+	{
+		if (begin->prev)
+		{
+			begin->prev->next = new;
+			new->prev = begin->prev;
+			new->next = begin;
+			begin->prev = new;
+		}
+		else
+		{
+			begin->prev = new;
+			begin->next = new;
+			new->prev = begin;
+			new->next = begin;
+		}
+	}
+	else
+		*stack_a = new;
+	return ;
+}
+
 int ft_arr_len(char **arr)
 {
     int len;

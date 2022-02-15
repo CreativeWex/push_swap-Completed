@@ -25,6 +25,29 @@ void	create_stack(t_all *all, int *sort, int *not_sort, int len)
 	free(sort);
 }
 
+void	free_stack(t_all *all)
+{
+	t_node	*tmp;
+
+	while (all->size_a--)
+	{
+		tmp = all->stack_a->next;
+		free(all->stack_a);
+		all->stack_a = NULL;
+		all->stack_a = tmp;
+	}
+	while (all->size_b--)
+	{
+		tmp = all->stack_b->next;
+		free(all->stack_b);
+		all->stack_b = NULL;
+		all->stack_b = tmp;
+	}
+	free(all);
+	exit(0);
+}
+
+
 void	babble_sort(t_all *all, int *sort, int *not_sort, int len)
 {
 	int	i;

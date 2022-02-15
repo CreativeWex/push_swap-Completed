@@ -38,8 +38,17 @@ typedef struct s_all
 char	**ft_readline(char **av);
 void	ft_check_input_numbers(char **arr);
 void ft_check_for_doubles(char **arr);
+void	ft_free_arr(char **arr, int flag);
 
 // data_initialisation.c
 t_all	*ft_init_struct(char **arr);
 int ft_arr_len(char **arr);
+t_node	*new_list(int num, int index);
+void	lstadd_back(t_node **stack_a, t_node *new);
+
+// parser_add.c
+void	add_to_stack(t_all *all, char **arr);
+void	free_stack(t_all *all);
+
+
 #endif
