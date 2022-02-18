@@ -1,6 +1,7 @@
 #include "push_swap.h"
 
-void	create_stack(t_all *all, int *sort, int *not_sort, int len)
+// Сопоставляем индексы
+void	ft_build_stack(t_all *all, int *sort, int *not_sort, int len)
 {
 	int	i;
 	int	j;
@@ -13,7 +14,7 @@ void	create_stack(t_all *all, int *sort, int *not_sort, int len)
 		{
 			if (not_sort[i] == sort[j])
 			{
-				lstadd_back(&all->stack_a, new_list(not_sort[i], j + 1));
+				lstadd_back(&all->stack_a, ft_new_list(not_sort[i], j + 1));
 				j++;
 				break ;
 			}
@@ -25,7 +26,7 @@ void	create_stack(t_all *all, int *sort, int *not_sort, int len)
 	free(sort);
 }
 
-void	free_stack(t_all *all)
+void	ft_free_stack(t_all *all)
 {
 	t_node	*tmp;
 
@@ -47,20 +48,20 @@ void	free_stack(t_all *all)
 	exit(0);
 }
 
-
-void	babble_sort(t_all *all, int *sort, int *not_sort, int len)
+void	ft_bubble_sorting(t_all *all, int *sort, int *not_sort, int len)
 {
 	int	i;
 	int	j;
 	int	tmp;
 	int	count;
 
-	i = -1;
+	i = 0;
 	count = 0;
-	while (++i < len)
+	while (i < len)
 	{
 		j = 0;
 		while (j < (len - 1 - i))
+		{
 			if (sort[j] > sort[j + 1])
 			{
 				tmp = sort[j + 1];
@@ -69,13 +70,15 @@ void	babble_sort(t_all *all, int *sort, int *not_sort, int len)
 				count++;
 			}
 			j++;
+		}
+		i++;
 	}
-	create_stack(all, sort, not_sort, len);
+	ft_build_stack(all, sort, not_sort, len);
 }
 
 // not_sort - массив исходных данных
 // sort - отсортированный массив
-void	add_to_stack(t_all *all, char **arr)
+void	ft_prepare_for_stack(t_all *all, char **arr)
 {
 	int	*not_sort;
 	int	*sort;
@@ -93,5 +96,5 @@ void	add_to_stack(t_all *all, char **arr)
 		not_sort[i] = num;
 		sort[i] = num;
 	}
-	babble_sort(all, sort, not_sort, len);
+	ft_bubble_sorting(all, sort, not_sort, len);
 }

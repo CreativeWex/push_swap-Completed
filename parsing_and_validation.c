@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#include "libft/libft.h"
 
 void	ft_display_error()
 {
@@ -11,7 +10,6 @@ void	ft_display_error()
 char	**ft_readline(char **av)
 {
 	int		i;
-    char	*tmp;
 	char	*line;
 	char	**arr;
 
@@ -66,17 +64,21 @@ void	ft_check_input_numbers(char **arr)
 }
 
 // Отсутствие повторяющихся чисел
-void ft_check_for_doubles(char **arr)
+void	ft_check_for_doubles(char **arr)
 {
 	int		i;
 	int		j;
 
-	i = -1;
-	while (arr[++i])
+	i = 0;
+	while (arr[i])
 	{
 		j = i + 1;
-		while (arr[j++])
+		while (arr[j])
+		{
 			if (ft_atoi(arr[i]) == ft_atoi(arr[j]))
 				ft_free_arr(arr, 1);
+			j++;
+		}
+		i++;
 	}
 }

@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_node	*new_list(int num, int index)
+t_node	*ft_new_list(int num, int index)
 {
 	t_node	*list;
 
@@ -15,30 +15,28 @@ t_node	*new_list(int num, int index)
 	return (list);
 }
 
-// Если список не инициализирован - создаем новый
-// Если не закольцован - закольцовываем
 void	lstadd_back(t_node **stack_a, t_node *new)
 {
-	t_node	*begin;
+	t_node	*lst_start;
 
 	if (new == NULL)
 		return ;
-	begin = *stack_a;
-	if (begin)
+	lst_start = *stack_a;
+	if (lst_start)
 	{
-		if (begin->prev)
+		if (lst_start->prev)
 		{
-			begin->prev->next = new;
-			new->prev = begin->prev;
-			new->next = begin;
-			begin->prev = new;
+			lst_start->prev->next = new;
+			new->prev = lst_start->prev;
+			new->next = lst_start;
+			lst_start->prev = new;
 		}
 		else
 		{
-			begin->prev = new;
-			begin->next = new;
-			new->prev = begin;
-			new->next = begin;
+			lst_start->prev = new;
+			lst_start->next = new;
+			new->prev = lst_start;
+			new->next = lst_start;
 		}
 	}
 	else
@@ -51,6 +49,8 @@ int ft_arr_len(char **arr)
     int len;
 
     len = 0;
+    if (arr == NULL)
+        return (0);
     while (arr[len])
         len++;
     return (len);

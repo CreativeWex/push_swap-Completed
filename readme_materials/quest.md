@@ -13,3 +13,7 @@ data_intialisation
 - make не компиллит библеотеку
 - data_initialisation
 - parser_add
+
+# Сега
+
+Это не data_initialisation
