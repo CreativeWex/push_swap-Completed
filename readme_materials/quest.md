@@ -2,7 +2,7 @@
 
 
 # Не понял
-ft_sorting_five
+Доделать ft_sorting_five
 
 # Переделать
 
