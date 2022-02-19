@@ -2,21 +2,20 @@ NAME	=	push_swap
 
 NAME_B	=	checker
 
-SRCS	=	push_swap.c		data_initialisation.c 	parsing_and_validation.c\
-			stack_base_operations.c
+SRCS	=	push_swap.c					data_initialisation.c 	parsing_and_validation.c\
+			stack_base_operations.c 	median_operations.c 	cmd_pa_pb.c\
+			cmd_ra_rb_rr.c				cmd_rra_rrb_rrr.c
 
-SRCS_B	=	src/cheker.c		src/parser_check.c \
+#SRCS_B	=	src/cheker.c		src/parser_check.c \
 			src/parser_init.c 	src/parser_add.c 	src/cmd_push.c \
 			src/cmd_swap.c		src/cmd_rotate.c 	src/cmd_reverse.c \
 			src/sort_big.c		src/sort_med.c		src/sort_min.c
 
 OBJ		=	$(SRCS:%.c=%.o)
 
-OBJ_B	=	$(SRCS_B:%.c=%.o)
+#OBJ_B	=	$(SRCS_B:%.c=%.o)
 
 LIB		=	libft/libft.a
-
-#HEADER	=	push_swap.h
 
 CC		=	gcc
 

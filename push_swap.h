@@ -36,6 +36,10 @@ typedef struct s_all
 	int				min_a;
 }					t_all;
 
+// push_swap.c
+int	ft_is_sort_true(t_all *all);
+
+
 // parsing and validation.c
 char	**ft_readline(char **av);
 void	ft_check_input_numbers(char **arr);
@@ -52,5 +56,12 @@ void	lstadd_back(t_node **stack_a, t_node *new);
 void	ft_prepare_for_stack(t_all *all, char **arr);
 void	free_stack(t_all *all);
 
+// stack_base_operations.c
+void	ft_free_stack(t_all *all);
+
+// median_operations.c
+
+void	stack_a_find_minmax(t_all *all);
+void	stack_b_find_minmax(t_all *all);
 
 #endif
