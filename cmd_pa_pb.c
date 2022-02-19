@@ -55,7 +55,7 @@ void	pb(t_all *all, int flag)
 {
 	if (all->size_a == 0)
 		return ;
-	push_b(all);
+	implant_top_a_to_b(all);
 	if (all->size_a == 1)
 		all->stack_a = NULL;
 	all->size_b++;
@@ -68,7 +68,7 @@ void	pa(t_all *all, int flag)
 {
 	if (all->size_b == 0)
 		return ;
-	push_a(all);
+	implant_top_b_to_a(all);
 	if (all->size_b == 1)
 		all->stack_b = NULL;
 	all->size_b--;

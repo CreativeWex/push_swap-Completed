@@ -1,5 +1,33 @@
 #include "push_swap.h"
 
+// Возвращает 1 если путь вперед короче
+int	which_way_faster(t_all *all)
+{
+	int		i;
+	int		j;
+	t_node	*tmp;
+
+	tmp = all->stack_a;
+	i = 0;
+	while (++i)
+	{
+		if (tmp->index == all->min)
+			break ;
+		tmp = tmp->next;
+	}
+	tmp = all->stack_a;
+	j = 0;
+	while (++j)
+	{
+		if (tmp->index == all->min)
+			break ;
+		tmp = tmp->prev;
+	}
+	if (j >= i)
+		return (1);
+	return (0);
+}
+
 int	ft_is_sort_true(t_all *all)
 {
 	int		i;
@@ -36,23 +64,23 @@ void	sorting(t_all *all)
 		ft_free_stack(all);
 	if (all->size_a < 6)
 	{
-		//sort_five(all);
+		ft_sorting_five(all);
 		ft_free_stack(all);
 	}
-	/*
-	move_a_to_b_first(all);
-	while (!(sort_true(all) && all->size_b == 0))
+	
+	send_first_group_to_b(all);
+	while (!(ft_is_sort_true(all) && all->size_b == 0))
 	{
 		if (all->size_b > 0 && all->size_b < 6)
-			sort_b_to_a_five(all);
+			//sort_b_to_a_five(all);
 		else if (all->size_b >= 6)
-			move_b_to_a(all);
+			//move_b_to_a(all);
 		if (all->size_b == 0)
 		{
-			sort_a_to_b_five(all, 0, 0, 0);
-			move_a_to_b(all);
+			//sort_a_to_b_five(all, 0, 0, 0);
+			//move_a_to_b(all);
 		}
-	}*/
+	}
 }
 
 int main(int argc, char **argv)
@@ -62,10 +90,8 @@ int main(int argc, char **argv)
 	if (argc > 1)
 	{
 		all = ft_parsing_args(argv);
-
-		all++;//!!!!!!!!!!
 		
-		//sorting(all);
+		sorting(all);
 		//ft_free_stack(all);
 	}
 	return (0);
