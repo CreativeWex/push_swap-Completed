@@ -44,7 +44,7 @@ libft:
 $(NAME):	$(OBJ)
 			@echo "$(BLUE)Compilation of $(NAME)\n$(END)"
 			@$(CC) $(FLAGS) $(OBJ) $(LIB) -o $(NAME)
-			@echo "$(TURQUOISE)\n\t Complited $(NAME) \n$(END)"
+			@echo "$(TURQUOISE)\n\t Completed $(NAME) \n$(END)"
 
 %.o:		%.c
 			@$(CC) $(FLAGS)  -c $< -o $@
@@ -58,7 +58,7 @@ bonus:		libft $(OBJ_B)
 clean:
 			@$(RM) $(OBJ) $(OBJ_B)
 			@$(MAKE) -C libft/ clean
-			@echo "$(BLUE)\n\tCleaning succeed\n$(END)"
+			@echo "$(BLUE)\n\tCleaning done\n$(END)"
 
 fclean:		clean
 			@$(MAKE) -C libft/ fclean
