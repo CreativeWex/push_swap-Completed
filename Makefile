@@ -4,8 +4,8 @@ NAME_B	=	checker
 
 SRCS	=	push_swap.c					data_initialisation.c 	parsing_and_validation.c\
 			stack_base_operations.c 	median_operations.c 	cmd_pa_pb.c\
-			cmd_ra_rb_rr.c				cmd_rra_rrb_rrr.c		sorting_three_five.c\
-			cmd_sa_sb_ss.c
+			cmd_ra_rb_rr.c				cmd_rra_rrb_rrr.c		small_group_sorting.c\
+			cmd_sa_sb_ss.c				big_group_sorting.c
 
 #SRCS_B	=	src/cheker.c		src/parser_check.c \
 			src/parser_init.c 	src/parser_add.c 	src/cmd_push.c \

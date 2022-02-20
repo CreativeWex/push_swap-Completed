@@ -65,7 +65,7 @@ void	stack_a_find_minmax_med(t_all *all);
 void	stack_b_find_minmax_med(t_all *all);
 void	send_first_group_to_b(t_all *all);
 
-// sorting_three_five.c
+// small_group_sorting.c
 void	ft_sorting_five(t_all *all);
 
 // cmd_pa_pb.c
@@ -86,5 +86,11 @@ void	rrr(t_all *all, int flag);
 void	sa(t_all *all, int flag);
 void	sb(t_all *all, int flag);
 void	ss(t_all *all, int flag);
+
+// big_group_sorting.c
+void	inverse_stack(t_all *all);
+void	stack_b_sorting_five(t_all *all);
+
+
 
 #endif

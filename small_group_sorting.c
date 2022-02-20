@@ -19,6 +19,7 @@ void	ft_sorting_three_a(t_all *all)
 		sa(all, 1);
 }
 
+// Находим 2 минимума, отправляем в другой стек, далее сортируем как 3 элемента
 void	ft_sorting_five(t_all *all)
 {
 	while (all->size_a > 3)

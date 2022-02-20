@@ -72,7 +72,7 @@ void	sorting(t_all *all)
 	while (!(ft_is_sort_true(all) && all->size_b == 0))
 	{
 		if (all->size_b > 0 && all->size_b < 6)
-			//sort_b_to_a_five(all);
+			stack_b_sorting_five(all);
 		else if (all->size_b >= 6)
 			//move_b_to_a(all);
 		if (all->size_b == 0)
@@ -92,7 +92,7 @@ int main(int argc, char **argv)
 		all = ft_parsing_args(argv);
 		
 		sorting(all);
-		//ft_free_stack(all);
+		ft_free_stack(all);
 	}
 	return (0);
 }
