@@ -77,3 +77,26 @@ void	stack_b_sorting_five(t_all *all)
 	}
 	aftermath_sorting_three(all, flag);
 }
+
+void	send_from_b_to_a(t_all *all)
+{
+	int	i;
+
+	stack_b_find_minmax_med(all);
+	i = all->size_b;
+	while (i-- > 0)
+	{
+		if (search_min_b_to_a(all))
+			continue ;
+		if (all->stack_b->index > all->med)
+		{
+			all->stack_b->flag++;
+			pa(all, 1);
+		}
+		else
+		{
+			all->stack_b->flag++;
+			rb(all, 1);
+		}
+	}
+}

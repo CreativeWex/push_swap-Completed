@@ -88,8 +88,15 @@ void	sb(t_all *all, int flag);
 void	ss(t_all *all, int flag);
 
 // big_group_sorting.c
+void	stack_b_sorting_three(t_all *all);
 void	inverse_stack(t_all *all);
 void	stack_b_sorting_five(t_all *all);
+void	send_from_b_to_a(t_all *all);
+
+// big_group_second_sorting.c
+void	ft_send_back(t_all *all);
+int	search_min_b_to_a(t_all *all);
+void	sorting_five_from_a_to_b(t_all *all, int flag, int min, int i);
 
 
 

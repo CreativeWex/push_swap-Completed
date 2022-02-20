@@ -74,11 +74,11 @@ void	sorting(t_all *all)
 		if (all->size_b > 0 && all->size_b < 6)
 			stack_b_sorting_five(all);
 		else if (all->size_b >= 6)
-			//move_b_to_a(all);
+			send_from_b_to_a(all);
 		if (all->size_b == 0)
 		{
-			//sort_a_to_b_five(all, 0, 0, 0);
-			//move_a_to_b(all);
+			sorting_five_from_a_to_b(all, 0, 0, 0);
+			ft_send_back(all);
 		}
 	}
 }
