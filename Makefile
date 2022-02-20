@@ -42,15 +42,18 @@ libft:
 			@$(MAKE) -C libft/
 
 $(NAME):	$(OBJ)
-			$(CC) $(FLAGS) $(OBJ) $(LIB) -o $(NAME)
+			@echo "$(BLUE)Compilation of $(NAME)\n$(END)"
+			@$(CC) $(FLAGS) $(OBJ) $(LIB) -o $(NAME)
 			@echo "$(TURQUOISE)\n\t Complited $(NAME) \n$(END)"
 
 %.o:		%.c
-			$(CC) $(FLAGS)  -c $< -o $@
+			@$(CC) $(FLAGS)  -c $< -o $@
+# $< - Имя первого пререквизита (подставляется первая зависимость).
+# $@ - Имя файла цели обрабатываемого правила.
 
 bonus:		libft $(OBJ_B)
 			$(CC) $(FLAGS) $(OBJ_B) $(LIB) -o $(NAME_B)
-			@echo "$(TURQUOISE)\n\tComplited $(NAME_B) \n$(END)"
+			@echo "$(BLUE)\nCleaning done!\n$(END)"
 
 clean:
 			@$(RM) $(OBJ) $(OBJ_B)
@@ -60,7 +63,7 @@ clean:
 fclean:		clean
 			@$(MAKE) -C libft/ fclean
 			@$(RM) $(NAME) $(NAME_B)
-			@echo "$(BLUE)\tAll files were deleted\n$(END)"
+			@echo "$(BLUE)\nDeleting done!\n$(END)"
 
 re:			fclean all
 			@echo "$(BLUE)\tRemake done\n$(END)"
