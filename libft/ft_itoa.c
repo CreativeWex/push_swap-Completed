@@ -3,66 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnidorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: einterdi <einterdi@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 17:38:27 by jnidorin          #+#    #+#             */
-/*   Updated: 2021/10/21 17:40:27 by jnidorin         ###   ########.fr       */
+/*   Created: 2021/10/14 19:57:17 by einterdi          #+#    #+#             */
+/*   Updated: 2021/10/15 15:10:48 by einterdi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_len(int nb)
+static int	size_nbr(int n)
 {
-	int	len;
+	int		len;
+	long	i;
 
+	i = (long)n;
+	if (n < 0)
+		i = (long)n * -1;
 	len = 0;
-	if (nb == 0)
+	while (i > 0)
+	{
+		i = i / 10;
+		len++;
+	}
+	if (n > 0)
+		return (len);
+	else if (n == 0)
 		return (1);
-	if (nb < 0)
-	{
-		nb *= -1;
-		len++;
-	}
-	while (nb > 0)
-	{
-		nb /= 10;
-		len++;
-	}
-	return (len);
+	else
+		return (len + 1);
 }
 
-static void	ft_res(int i, int n, char *ans)
+void	record_str(long n, int len, char	*str)
 {
-	while (i-- && n > 0)
+	str[len] = '\0';
+	while (len != 0)
 	{
-		ans[i] = (n % 10) + 48;
-		n /= 10;
+		str[len - 1] = (n % 10) + 48;
+		n = n / 10;
+		len--;
 	}
 }
 
 char	*ft_itoa(int n)
 {
-	char	*ans;
-	int		i;
+	char	*str;
+	int		len;
+	long	i;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	i = ft_len(n);
-	ans = (char *) malloc(sizeof(char) * (i + 1));
-	if (ans == NULL)
+	len = size_nbr(n);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
 		return (NULL);
-	ans[i--] = '\0';
-	if (n == 0)
+	if (n >= 0)
+		record_str(n, len, str);
+	else
 	{
-		ans[0] = '0';
-		return (ans);
+		i = (long)n * -1;
+		record_str(i, len, str);
+		str[0] = '-';
 	}
-	if (n < 0)
-	{
-		ans[0] = '-';
-		n *= -1;
-	}
-	ft_res(++i, n, ans);
-	return (ans);
+	return (str);
 }

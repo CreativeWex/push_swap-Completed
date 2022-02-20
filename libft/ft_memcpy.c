@@ -3,25 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnidorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: einterdi <einterdi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:36:44 by jnidorin          #+#    #+#             */
-/*   Updated: 2021/10/19 16:25:22 by jnidorin         ###   ########.fr       */
+/*   Created: 2021/10/09 14:50:03 by einterdi          #+#    #+#             */
+/*   Updated: 2021/10/12 13:02:20 by einterdi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dict, const void *str, size_t n)
 {
-	unsigned char	*dest;
-	const char		*source;
+	size_t	i;
+	char	*dict2;
+	char	*str2;
 
-	if (!dst && !src)
-		return (NULL);
-	dest = dst;
-	source = src;
-	while (n--)
-		*dest++ = *source++;
-	return (dst);
+	i = 0;
+	dict2 = (char *)dict;
+	str2 = (char *)str;
+	if (str2 == NULL && dict2 == NULL)
+		return (0);
+	while (i < n)
+	{
+		dict2[i] = str2[i];
+		i++;
+	}
+	return (dict);
 }

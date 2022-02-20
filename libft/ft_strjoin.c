@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnidorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: einterdi <einterdi@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 13:44:25 by jnidorin          #+#    #+#             */
-/*   Updated: 2021/10/21 13:44:37 by jnidorin         ###   ########.fr       */
+/*   Created: 2021/10/13 21:50:20 by einterdi          #+#    #+#             */
+/*   Updated: 2021/10/13 23:14:50 by einterdi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char			*dest;
-	unsigned int	i;
+	size_t	len1;
+	size_t	len2;
+	char	*mem;
 
-	i = 0;
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	dest = (char *)malloc(sizeof(*dest) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (dest == NULL)
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	mem = (char *)malloc(len1 + len2 + 1);
+	if (mem == NULL)
 		return (NULL);
-	while (*s1 != '\0')
-		dest[i++] = *s1++;
-	while (*s2 != '\0')
-		dest[i++] = *s2++;
-	dest[i] = '\0';
-	return (dest);
+	ft_strlcpy(mem, s1, len1 + 1);
+	ft_strlcat(mem, s2, len1 + len2 + 1);
+	return (mem);
 }

@@ -42,6 +42,7 @@ int	which_way_faster(t_all *all);
 
 
 // parsing and validation.c
+void	ft_display_error();
 char	**ft_readline(char **av);
 void	ft_check_input_numbers(char **arr);
 void ft_check_for_doubles(char **arr);
@@ -53,11 +54,8 @@ int		ft_arr_len(char **arr);
 t_node	*ft_new_list(int num, int index);
 void	lstadd_back(t_node **stack_a, t_node *new);
 
-// parser_add.c
+//stack_base_operations.c
 void	ft_prepare_for_stack(t_all *all, char **arr);
-void	free_stack(t_all *all);
-
-// stack_base_operations.c
 void	ft_free_stack(t_all *all);
 
 // median_operations.c
