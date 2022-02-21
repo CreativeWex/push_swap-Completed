@@ -7,40 +7,18 @@ void	ft_display_error()
 }
 
 // Считывает входные параметры, создает массив из количества строк
-/*char	**ft_readline(char **av)
-{
-	int		i;
-	char	*line;
-	char	**arr;
-
-	line = ft_strdup(av[1]);
-	i = 1;
-	while (av[++i])
-	{
-		line = ft_strjoin(line, " ");
-		line = ft_strjoin(line, av[i]);
-	}
-	arr = ft_split(line, ' ');
-	free(line);
-	return (arr);
-}*/
 char	**ft_readline(char **av)
 {
 	int		i;
 	char	*line;
-	char	*tmp;
 	char	**arr;
 
 	line = ft_strdup(av[1]);
 	i = 1;
 	while (av[++i])
 	{
-		tmp = line;
 		line = ft_strjoin(line, " ");
-		free(tmp);
-		tmp = line;
 		line = ft_strjoin(line, av[i]);
-		free(tmp);
 	}
 	arr = ft_split(line, ' ');
 	free(line);
