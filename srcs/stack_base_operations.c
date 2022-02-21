@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // Сопоставляем индексы
 void	ft_build_stack(t_all *all, int *sort, int *not_sort, int len)

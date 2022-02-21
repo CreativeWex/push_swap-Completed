@@ -2,10 +2,10 @@ NAME	=	push_swap
 
 NAME_B	=	checker
 
-SRCS	=	push_swap.c					data_initialisation.c 	parsing_and_validation.c\
-			stack_base_operations.c 	median_operations.c 	cmd_pa_pb.c\
-			cmd_ra_rb_rr.c				cmd_rra_rrb_rrr.c		small_group_sorting.c\
-			cmd_sa_sb_ss.c				big_group_sorting.c		big_group_second_sorting.c
+SRCS	=	srcs/push_swap.c				srcs/data_initialisation.c 		srcs/parsing_and_validation.c\
+			srcs/stack_base_operations.c 	srcs/median_operations.c 		cmd/cmd_pa_pb.c\
+			cmd/cmd_ra_rb_rr.c				cmd/cmd_rra_rrb_rrr.c			srcs/small_group_sorting.c\
+			cmd/cmd_sa_sb_ss.c				srcs/big_group_sorting.c		srcs/big_group_second_sorting.c
 
 #SRCS_B	=	src/cheker.c		src/parser_check.c \
 			src/parser_init.c 	src/parser_add.c 	src/cmd_push.c \
@@ -39,12 +39,12 @@ END		=	\033[0m
 all:		libft $(NAME)
 
 libft:
-			@$(MAKE) -C libft/
+			@make -C libft/
 
 $(NAME):	$(OBJ)
-			@echo "$(BLUE)Compilation of $(NAME)\n$(END)"
+			@echo "$(BLUE)Compilation of $(NAME)$(END)"
 			@$(CC) $(FLAGS) $(OBJ) $(LIB) -o $(NAME)
-			@echo "$(TURQUOISE)\n\t Completed $(NAME) \n$(END)"
+			@echo "$(TURQUOISE)\n[ Completed $(NAME) ] \n$(END)"
 
 %.o:		%.c
 			@$(CC) $(FLAGS)  -c $< -o $@
@@ -58,7 +58,7 @@ bonus:		libft $(OBJ_B)
 clean:
 			@$(RM) $(OBJ) $(OBJ_B)
 			@$(MAKE) -C libft/ clean
-			@echo "$(BLUE)\n\tCleaning done\n$(END)"
+			@echo "$(BLUE)\nCleaning done\n$(END)"
 
 fclean:		clean
 			@$(MAKE) -C libft/ fclean
@@ -66,6 +66,6 @@ fclean:		clean
 			@echo "$(BLUE)\nDeleting done!\n$(END)"
 
 re:			fclean all
-			@echo "$(BLUE)\tRemake done\n$(END)"
+			@echo "$(BLUE)Remake done\n$(END)"
 
 

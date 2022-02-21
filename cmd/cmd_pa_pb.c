@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 
 //В tmp сохраняем указатель на следующий после head элемент

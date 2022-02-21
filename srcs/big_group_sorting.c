@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // Устанавливает, что поколение отсортировано, перекидывает верхний элемент вниз
 void	inverse_stack(t_all *all)

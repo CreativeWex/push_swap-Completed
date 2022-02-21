@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // Возвращает 1 если путь вперед короче
 int	which_way_faster(t_all *all)

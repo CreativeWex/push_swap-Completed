@@ -31,17 +31,17 @@ FLAGS	=	 -Wall -Wextra -Werror
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJ) $(HEADER)
-			ar r $(NAME) $?
-			@echo "\033[36;1m\n< Complited libft >\n\033[0m"
+			@ar r $(NAME) $?
+			@echo "\033[36;1m\n[ Completed libft ]\n\033[0m"
 
 %.o 	:	%.c $(HEADER)
-			$(CC) $(FLAGS) -c $< -o $@
+			@$(CC) $(FLAGS) -c $< -o $@
 
 $(OBJ_B)	:	$(SRCS_B) $(HEADER)
-			$(CC) $(FLAGS) -c $(SRCS_B)
+			@$(CC) $(FLAGS) -c $(SRCS_B)
 
 bonus	:	$(OBJ_B)
-			ar r $(NAME) $^
+			@ar r $(NAME) $^
 
 clean	:
 			@rm -rf $(OBJ) $(OBJ_B)

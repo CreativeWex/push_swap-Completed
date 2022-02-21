@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	stack_a_find_minmax_med(t_all *all)
 {

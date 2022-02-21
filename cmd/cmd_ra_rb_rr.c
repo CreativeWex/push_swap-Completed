@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 //head становится next, все элементы сдвигаются на 1. Первый элемент становится последним.
 void	ra(t_all *all, int flag)
