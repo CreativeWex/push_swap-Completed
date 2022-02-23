@@ -96,6 +96,4 @@ void	ft_send_back(t_all *all);
 int	search_min_b_to_a(t_all *all);
 void	sorting_five_from_a_to_b(t_all *all, int flag, int min, int i);
 
-
-
 #endif

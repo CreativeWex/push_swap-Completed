@@ -7,11 +7,16 @@ SRCS	=	srcs/push_swap.c				srcs/data_initialisation.c 		srcs/parsing_and_validat
 			cmd/cmd_ra_rb_rr.c				cmd/cmd_rra_rrb_rrr.c			srcs/small_group_sorting.c\
 			cmd/cmd_sa_sb_ss.c				srcs/big_group_sorting.c		srcs/big_group_second_sorting.c
 
-#SRCS_B	=	
+SRCS_B	=	srcs/checker.c					srcs/parsing_and_validation.c	srcs/data_initialisation.c\
+			srcs/stack_base_operations.c	cmd/cmd_pa_pb.c					cmd/cmd_sa_sb_ss.c\
+			cmd/cmd_ra_rb_rr.c				cmd/cmd_rra_rrb_rrr.c			srcs/median_operations.c\
+			srcs/small_group_sorting.c		srcs/big_group_sorting.c		srcs/big_group_second_sorting.c\
+			srcs/checker_utils.c
+
 
 OBJ		=	$(SRCS:%.c=%.o)
 
-#OBJ_B	=	$(SRCS_B:%.c=%.o)
+OBJ_B	=	$(SRCS_B:%.c=%.o)
 
 LIB		=	libft/libft.a
 
@@ -21,16 +26,10 @@ FLAGS	=	-Wall -Wextra -Werror
 
 RM		= rm -rf
 
-#---------------------------------------------------------------------------------
-RED		=	\033[1;31m
 BLUE	=	\033[1;34m
-YELLOW	=	\033[1;33m
-WHITE	=	\033[1;32m
-PUPURE	=	\033[1;35m
-GRY		=	\033[1;30m
 TURQUOISE =	\033[36;1m
 END		=	\033[0m
-#---------------------------------------------------------------------------------
+
 .PHONY:		all	clean	fclean	re	bonus	libft
 
 all:		libft $(NAME)

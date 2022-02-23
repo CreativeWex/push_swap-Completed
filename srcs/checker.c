@@ -1,35 +1,4 @@
-#include "push_swap.h"
-
-void ft_space_checker()
-
-/*void	space_checker(char *line)
-{
-	int i;
-
-	i = -1;
-	while (arr[++i])
-	{
-		if (arr[i] == ' ' || arr[i] == '\t' || arr[i] == '\v' || arr[i] == '\n' || arr[i] == '\f' || arr[i] == '\r')
-			ft_display_error();
-	}
-	return ;
-}*/
-
-int	ft_is_sort_true(t_all *all)
-{
-	int		i;
-	t_node	*head;
-
-	head = all->stack_a;
-	i = all->size_a - 1;
-	while (i-- > 0)
-	{
-		if (head->index > head->next->index)
-			return (0);
-		head = head->next;
-	}
-	return (1);
-}
+#include "../push_swap.h"
 
 static void	get_cmd(t_all *all, char *line)
 {
@@ -68,7 +37,6 @@ static void	checker(t_all *all)
 		line = get_next_line(0);
 		if (!line)
 			break ;
-		space_checker(line);
 		get_cmd(all, line);
 	}
 	if (ft_is_sort_true(all))
@@ -76,7 +44,7 @@ static void	checker(t_all *all)
 	else
 		write(1, "KO\n", 3);
 }
-
+ 
 t_all	*ft_parsing_args(char **argv)
 {
 	t_all	*all;
@@ -91,14 +59,15 @@ t_all	*ft_parsing_args(char **argv)
 	return (all);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_all	*all;
+	t_all	*all;
 
 	if (argc > 1)
 	{
-		all = parsing(argv);
-		checker(all, argv);
-		free_stack(all);
+		all = ft_parsing_args(argv);
+		checker(all);
+		ft_free_stack(all);
 	}
 	return (0);
+}

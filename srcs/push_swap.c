@@ -90,7 +90,6 @@ int main(int argc, char **argv)
 	if (argc > 1)
 	{
 		all = ft_parsing_args(argv);
-		
 		sorting(all);
 		ft_free_stack(all);
 	}
