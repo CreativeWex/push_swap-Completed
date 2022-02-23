@@ -76,6 +76,7 @@ void	stack_b_sorting_five(t_all *all)
 	aftermath_sorting_three(all, flag);
 }
 
+// Из Б в А перекидываем мминимальные элементы/разбиваем по поколениям
 void	send_from_b_to_a(t_all *all)
 {
 	int	i;

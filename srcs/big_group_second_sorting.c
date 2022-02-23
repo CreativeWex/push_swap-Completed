@@ -1,5 +1,6 @@
 #include "../push_swap.h"
 
+// Находим  минимальный элемент, отправялем его в А.
 void	search_min_a_to_b(t_all *all)
 {
 	int	min;
@@ -29,6 +30,7 @@ void	search_min_a_to_b(t_all *all)
 	}
 }
 
+// При нахождении минимального элемента в стеке Б - отправляет в А, при нахождении в А - проверяет корректность
 int	search_min_b_to_a(t_all *all)
 {
 	int	min;
@@ -68,7 +70,7 @@ void	ft_send_back(t_all *all)
 	}
 }
 
-void	privet_norma(t_all *all, int flag)
+void	sorting_five_from_a_to_b_sec(t_all *all, int flag)
 {
 	stack_b_sorting_three(all);
 	if (all->stack_a->index > all->stack_a->next->index && \
@@ -114,6 +116,6 @@ void	sorting_five_from_a_to_b(t_all *all, int flag, int min, int i)
 				pb(all, 1);
 			i--;
 		}
-		privet_norma(all, flag);
+		sorting_five_from_a_to_b_sec(all, flag);
 	}
 }
