@@ -7,10 +7,7 @@ SRCS	=	srcs/push_swap.c				srcs/data_initialisation.c 		srcs/parsing_and_validat
 			cmd/cmd_ra_rb_rr.c				cmd/cmd_rra_rrb_rrr.c			srcs/small_group_sorting.c\
 			cmd/cmd_sa_sb_ss.c				srcs/big_group_sorting.c		srcs/big_group_second_sorting.c
 
-#SRCS_B	=	src/cheker.c		src/parser_check.c \
-			src/parser_init.c 	src/parser_add.c 	src/cmd_push.c \
-			src/cmd_swap.c		src/cmd_rotate.c 	src/cmd_reverse.c \
-			src/sort_big.c		src/sort_med.c		src/sort_min.c
+#SRCS_B	=	
 
 OBJ		=	$(SRCS:%.c=%.o)
 
@@ -39,7 +36,7 @@ END		=	\033[0m
 all:		libft $(NAME)
 
 libft:
-			@make -C libft/
+			@make -s -C libft/
 
 $(NAME):	$(OBJ)
 			@echo "$(BLUE)Compilation of $(NAME)$(END)"
@@ -53,15 +50,15 @@ $(NAME):	$(OBJ)
 
 bonus:		libft $(OBJ_B)
 			$(CC) $(FLAGS) $(OBJ_B) $(LIB) -o $(NAME_B)
-			@echo "$(BLUE)\nCleaning done!\n$(END)"
+			@echo "$(BLUE)\nBonus done!\n$(END)"
 
 clean:
 			@$(RM) $(OBJ) $(OBJ_B)
-			@$(MAKE) -C libft/ clean
+			@$(MAKE) -s -C libft/ clean
 			@echo "$(BLUE)\nCleaning done\n$(END)"
 
 fclean:		clean
-			@$(MAKE) -C libft/ fclean
+			@$(MAKE) -s -C libft/ fclean
 			@$(RM) $(NAME) $(NAME_B)
 			@echo "$(BLUE)\nDeleting done!\n$(END)"
 

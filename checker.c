@@ -1,5 +1,20 @@
 #include "push_swap.h"
 
+void ft_space_checker()
+
+/*void	space_checker(char *line)
+{
+	int i;
+
+	i = -1;
+	while (arr[++i])
+	{
+		if (arr[i] == ' ' || arr[i] == '\t' || arr[i] == '\v' || arr[i] == '\n' || arr[i] == '\f' || arr[i] == '\r')
+			ft_display_error();
+	}
+	return ;
+}*/
+
 int	ft_is_sort_true(t_all *all)
 {
 	int		i;
@@ -53,6 +68,7 @@ static void	checker(t_all *all)
 		line = get_next_line(0);
 		if (!line)
 			break ;
+		space_checker(line);
 		get_cmd(all, line);
 	}
 	if (ft_is_sort_true(all))
@@ -82,7 +98,7 @@ int main(int argc, char **argv)
 	if (argc > 1)
 	{
 		all = parsing(argv);
-		checker(all);
+		checker(all, argv);
 		free_stack(all);
 	}
 	return (0);
