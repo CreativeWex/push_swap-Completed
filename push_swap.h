@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnidorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/23 15:30:37 by jnidorin          #+#    #+#             */
+/*   Updated: 2022/02/23 15:39:35 by jnidorin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-#include <stdio.h>
+# include <stdio.h>
 
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
 
-
 // int num - значение, которое нужно отсортировать
-// int index - порядок в котором находится это значение в уже отсортированном массиве
+// int index - порядок в котором находится это значение 
+// в уже отсортированном массиве
 // int flag - флаг (элемент стека А уже был в стеке Б)
 // next - ссылка на следующий элемент, который нужно отсортировать
 typedef struct s_node
@@ -19,11 +31,13 @@ typedef struct s_node
 	int				flag;
 	struct s_node	*next;
 	struct s_node	*prev;
-}                   t_node;
+}					t_node;
 
 // Каждый стек - отдельный двусвязный список
 // Длина стека нужна для перемещения по закольцованному списку
-// min_a индекс первого элемента отсортированного массива, как только нашли минимальный элемент и поместили в низ стека А, увеличивается на 1. Изначально равна 1.
+// min_a индекс первого элемента отсортированного массива,
+// Нашли минимальный элемент, поместили в низ стека А, min_a++.
+// Изначально равна 1.
 typedef struct s_all
 {
 	t_node			*stack_a;
@@ -37,16 +51,15 @@ typedef struct s_all
 }					t_all;
 
 // push_swap.c
-int	ft_is_sort_true(t_all *all);
-int	which_way_faster(t_all *all);
-
+int		ft_is_sort_true(t_all *all);
+int		which_way_faster(t_all *all);
 
 // parsing and validation.c
-void	ft_display_error();
-char	**ft_readline(char **av);
+void	ft_display_error(void);
 void	ft_check_input_numbers(char **arr);
-void ft_check_for_doubles(char **arr);
+void	ft_check_for_doubles(char **arr);
 void	ft_free_arr(char **arr, int flag);
+char	**ft_readline(char **av);
 
 // data_initialisation.c
 t_all	*ft_init_struct(char **arr);
@@ -93,7 +106,7 @@ void	send_from_b_to_a(t_all *all);
 
 // big_group_second_sorting.c
 void	ft_send_back(t_all *all);
-int	search_min_b_to_a(t_all *all);
+int		search_min_b_to_a(t_all *all);
 void	sorting_five_from_a_to_b(t_all *all, int flag, int min, int i);
 
 #endif

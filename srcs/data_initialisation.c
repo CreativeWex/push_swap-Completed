@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   data_initialisation.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnidorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/23 15:52:06 by jnidorin          #+#    #+#             */
+/*   Updated: 2022/02/23 15:54:07 by jnidorin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 t_node	*ft_new_list(int num, int index)
@@ -44,16 +56,16 @@ void	lstadd_back(t_node **stack_a, t_node *new)
 	return ;
 }
 
-int ft_arr_len(char **arr)
+int	ft_arr_len(char **arr)
 {
-    int len;
+	int	len;
 
-    len = 0;
-    if (arr == NULL)
-        return (0);
-    while (arr[len])
-        len++;
-    return (len);
+	len = 0;
+	if (arr == NULL)
+		return (0);
+	while (arr[len])
+		len++;
+	return (len);
 }
 
 t_all	*ft_init_struct(char **arr)

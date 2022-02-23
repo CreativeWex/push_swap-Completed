@@ -76,4 +76,3 @@ char		*ft_gnl_strjoin(char *s1, char *s2);
 char		*ft_gnl_strdup(const char *s1);
 
 #endif
-

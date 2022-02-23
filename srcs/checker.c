@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnidorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/23 15:57:10 by jnidorin          #+#    #+#             */
+/*   Updated: 2022/02/23 15:57:13 by jnidorin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static void	get_cmd(t_all *all, char *line)
@@ -44,7 +56,7 @@ static void	checker(t_all *all)
 	else
 		write(1, "KO\n", 3);
 }
- 
+
 t_all	*ft_parsing_args(char **argv)
 {
 	t_all	*all;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnidorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/23 15:45:54 by jnidorin          #+#    #+#             */
+/*   Updated: 2022/02/23 15:45:58 by jnidorin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 // Возвращает 1 если путь вперед короче
@@ -67,7 +79,6 @@ void	sorting(t_all *all)
 		ft_sorting_five(all);
 		ft_free_stack(all);
 	}
-	
 	send_first_group_to_b(all);
 	while (!(ft_is_sort_true(all) && all->size_b == 0))
 	{
@@ -83,9 +94,9 @@ void	sorting(t_all *all)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_all	*all;
+	t_all	*all;
 
 	if (argc > 1)
 	{

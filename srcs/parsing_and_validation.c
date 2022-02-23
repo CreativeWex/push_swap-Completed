@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing_and_validation.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnidorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/23 15:58:07 by jnidorin          #+#    #+#             */
+/*   Updated: 2022/02/23 15:58:09 by jnidorin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void	ft_display_error()
+void	ft_display_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_SUCCESS);
@@ -24,7 +36,6 @@ char	**ft_readline(char **av)
 	free(line);
 	return (arr);
 }
-
 
 // Очистка памяти
 void	ft_free_arr(char **arr, int flag)
