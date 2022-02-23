@@ -77,6 +77,7 @@ int	main(int argc, char **argv)
 
 	if (argc > 1)
 	{
+		check_trap(argc, argv);
 		all = ft_parsing_args(argv);
 		checker(all);
 		ft_free_stack(all);
